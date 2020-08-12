@@ -1,0 +1,42 @@
+textarea {
+  resize: none;
+  min-height: 150px !important;
+}
+
+.container {
+  max-width: 877.5px !important;
+  background: white;
+}
+
+body {
+  background: whitesmoke;
+}
+
+#drop-area {
+  background: white;
+  border: 2px dashed #ccc;
+  width: 450px;
+  font-family: sans-serif;
+  margin: 150px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#drop-area.highlight {
+  border-color: #697ddc;
+}
+
+#drop-area ion-icon {
+  font-size: 100px;
+  color: #697ddc;
+}
+
+#drop-area input {
+  display: none;
+}
+
+#drop-area p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
