@@ -36,25 +36,22 @@ function generateHTML(csv) {
   var preview = document.createElement("div");
   preview.classList.add("row");
 
-  var column = 1;
   csv.forEach(row => {
     if(!preview.querySelector("." + machine(row.Header))) {
-      column = 1;
-
       var header = document.createElement("h2");
       header.textContent = row.Header;
-      header.classList.add(machine(row.Header), "col-md-12");
+      header.classList.add(machine(row.Header), "col-xs-12");
+      // header.style.clear = "both";
 
       preview.append(header);
     }
 
     if(row.Subheader) {
       if(!preview.querySelector("." + machine(row.Subheader))) {
-        column = 1;
-
         var subheader = document.createElement("h4");
         subheader.textContent = row.Subheader;
-        subheader.classList.add(machine(row.Subheader), "col-md-12");
+        subheader.classList.add(machine(row.Subheader), "col-xs-12");
+        // subheader.style.clear = "both";
 
         preview.append(subheader);
       }
@@ -110,17 +107,27 @@ function generateHTML(csv) {
         employeeParagraph.append(employeeWebsite);
       }
     }
-
     employee.append(employeeParagraph);
     preview.append(employee);
-    column++;
+
+    console.log(row);
+    if(row.Break) {
+      var dividerRow = document.createElement("div");
+      dividerRow.classList.add("col-xs-12");
+      dividerRow.style.marginBottom = "20px";
+
+      var divider = document.createElement("hr");
+
+      dividerRow.append(divider);
+      preview.append(dividerRow);
+    }
   });
 
   var sourceRow = document.createElement("div");
   sourceRow.classList.add("row");
 
   var source = document.createElement("textarea");
-  source.textContent = preview.outerHTML.trim();
+  source.textContent = preview.outerHTML.replace(/https:\/\/esvadmin11.eschoolview.com\//g, "/").trim();
   source.classList.add("col-xs-12");
   source.readOnly = true;
   sourceRow.append(source);
