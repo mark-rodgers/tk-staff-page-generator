@@ -110,7 +110,6 @@ function generateHTML(csv) {
     employee.append(employeeParagraph);
     preview.append(employee);
 
-    console.log(row);
     if(row.Break) {
       var dividerRow = document.createElement("div");
       dividerRow.classList.add("col-xs-12");
