@@ -58,7 +58,7 @@ function generateHTML(csv) {
     }
 
     var employee = document.createElement("div");
-    employee.classList.add("col-lg-3", "col-sm-6", "col-xs-12");
+    employee.classList.add("col-lg-3", "col-sm-6", "col-xs-6");
 
     var imageURL = "https://esvadmin11.eschoolview.com/uploads/6DD71C25-FF99-4479-A342-1EE69FFF6B8C/placeholder.png";
     if(row.ImageURL) imageURL = row.ImageURL;
